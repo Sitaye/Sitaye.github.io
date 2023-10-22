@@ -21,7 +21,7 @@
     <meta name="description" content="如果你某一天有了一个搭建个人博客的想法，但是因为资金不足、技术栈太浅等原因导致难以从零开始搭建自己的网站，那么用Hexo搭建一个静态博客就是一个不错的选择！本站是也是一个基于Hexo搭建的个人博客，将我的搭建过程分享出来，供感兴趣的朋友参考。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo静态博客搭建（基础篇）">
-<meta property="og:url" content="https://watercuckoo.top/2023-10-19-Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA.html">
+<meta property="og:url" content="https://watercuckoo.top/2023-10-19-Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%EF%BC%88%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%89.html">
 <meta property="og:site_name" content="WaTerBirD&#39;s Blog">
 <meta property="og:description" content="如果你某一天有了一个搭建个人博客的想法，但是因为资金不足、技术栈太浅等原因导致难以从零开始搭建自己的网站，那么用Hexo搭建一个静态博客就是一个不错的选择！本站是也是一个基于Hexo搭建的个人博客，将我的搭建过程分享出来，供感兴趣的朋友参考。">
 <meta property="og:locale" content="zh_CN">
@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://watercuckoo.top/img/domain1.png">
 <meta property="og:image" content="https://watercuckoo.top/img/domain2.png">
 <meta property="article:published_time" content="2023-10-19T11:34:28.000Z">
-<meta property="article:modified_time" content="2023-10-21T14:33:28.103Z">
+<meta property="article:modified_time" content="2023-10-22T01:04:11.476Z">
 <meta property="article:author" content="WaTerBirD">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="博客">
@@ -426,7 +426,7 @@ target="_blank" rel="noopener" href="https://github.com/settings/keys">链接</a
 <img src="/img/ssh2.png" srcset="/img/loading2.gif" lazyload alt="这时你会看到的界面" />
 <figcaption aria-hidden="true">这时你会看到的界面</figcaption>
 </figure>
-<p><code>title</code>随便取，<code>Key type</code>保持默认<code>Authentication key</code>，然后在<code>Key</code>中填入你上面生成的公共秘钥<code>id_rsa.pub</code>中的内容：</p>
+<p><code>Title</code>随便取，<code>Key type</code>保持默认<code>Authentication key</code>，然后在<code>Key</code>中填入你上面生成的公共秘钥<code>id_rsa.pub</code>中的内容：</p>
 <figure>
 <img src="/img/ssh3.png" srcset="/img/loading2.gif" lazyload alt="这时你会看到的界面" />
 <figcaption aria-hidden="true">这时你会看到的界面</figcaption>
@@ -466,7 +466,7 @@ target="_blank" rel="noopener" href="https://github.com/settings/keys">链接</a
 <p>此时你的博客已经部署到Github的仓库中了，你可以在浏览器中输入<code>https://usergithubname.github.io/</code>来访问你的博客啦。这里<code>usergithubname</code>还是填你Github的用户名。</p>
 <h2 id="设置个人域名">4. 设置个人域名</h2>
 <h3 id="一点准备">4. 1 一点准备</h3>
-<p>在部署中就会遇到一个问题，那就是如果关掉科学上网的工具，那网站就很难再访问了。但是如果我们想让没有科学上网工具的人也能浏览我们的博客应该怎么办呢？答案是<strong>申请个人域名</strong>。</p>
+<p>在部署中就会遇到一个问题，那就是如果关掉科学上网的工具，那网站就很难再访问了。但是如果我们想让没有科学上网工具的人也能浏览我们的博客应该怎么办呢？答案是<strong>设置个人域名</strong>。</p>
 <p>我们在浏览器中输入<code>https://usergithubname.github.io/</code>打开我们的博客的时候，其中经历了三个步骤：</p>
 <ul>
 <li>浏览器根据域名向DNS服务器发送请求</li>
@@ -525,7 +525,7 @@ target="_blank" rel="noopener" href="https://github.com/settings/keys">链接</a
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean<br>hexo g -d<br></code></pre></td></tr></table></figure>
 <p>上面这个命令可以在生成之后立即部署，然后你就可以用自己的域名进行访问啦。</p>
 <blockquote>
-<p>建议每次部署之前都进行上面三次操作。</p>
+<p>建议每次部署之前都进行上面的操作。</p>
 </blockquote>
 <h2 id="总结">5. 总结</h2>
 <p>至此，一个可以通过互联网快速访问、可以任你创造的博客就创建好了。不过你要走的路还很长，包括网站的基础设置、网站主题的更换，评论系统、访问统计、SEO等等，这些都是为了让你的博客更好看、让别人能更好的浏览。说来我搭建博客也没多长时间，我要学的东西也有很多，之后我也会继续更新，努力把自己的博客建的更好。</p>
@@ -557,7 +557,7 @@ target="_blank" rel="noopener" href="https://github.com/settings/keys">链接</a
   <div class="license-box my-3">
     <div class="license-title">
       <div>Hexo静态博客搭建（基础篇）</div>
-      <div>https://watercuckoo.top/2023-10-19-Hexo静态博客搭建.html</div>
+      <div>https://watercuckoo.top/2023-10-19-Hexo静态博客搭建（基础篇）.html</div>
     </div>
     <div class="license-meta">
       
