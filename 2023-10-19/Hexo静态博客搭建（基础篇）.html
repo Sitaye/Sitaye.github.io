@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://watercuckoo.top/img/domain1.png">
 <meta property="og:image" content="https://watercuckoo.top/img/domain2.png">
 <meta property="article:published_time" content="2023-10-19T11:34:28.000Z">
-<meta property="article:modified_time" content="2023-10-22T10:44:25.052Z">
+<meta property="article:modified_time" content="2023-10-22T11:01:35.618Z">
 <meta property="article:author" content="WaTerBirD">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="博客">
@@ -277,7 +277,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.6k 字
+          4.8k 字
         
       </span>
     
@@ -288,7 +288,7 @@
         
         
         
-          39 分钟
+          40 分钟
         
       </span>
     
@@ -405,8 +405,14 @@ target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">官方文档</
 <p>然后其他选项保持默认即可（注意下方是否选择了
 <strong><em>Public</em></strong> 选项以免不能通过网址访问）</p>
 <h3 id="生成本地ssh">3. 3 生成本地SSH</h3>
-<p>把本地的文件上传到Github是通过<strong>SSH</strong>传递的，因此先要在本地生成<strong>SSH秘钥</strong>。</p>
-<p>在你博客文件夹下打开终端，在终端中输入：</p>
+<p>SSH是一种<strong>网络协议</strong>，让我们能够安全地登陆到Github上，有效防止远程管理过程中的信息泄露问题。其具体的实现过程如下：</p>
+<ul>
+<li>远程主机收到来自你电脑的登陆请求，将主机存储的SSH公钥与你电脑发送的<strong>公钥</strong>进行比对。</li>
+<li>若公钥一致，主机将用你电脑发送的公钥加密“质询”(Challenge)并将加密内容返回你的电脑。</li>
+<li>你的电脑用本地一并生成的<strong>私钥</strong>对”质询“进行解密并把解密内容发送给远程主机。</li>
+<li>若解密内容一致，则允许登陆。</li>
+</ul>
+<p>让我们我们先在本地生成<strong>SSH秘钥</strong>。在你博客文件夹下打开终端，在终端中输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global user.name <span class="hljs-string">&quot;username&quot;</span><br>git config --global user.email <span class="hljs-string">&quot;useremail&quot;</span><br></code></pre></td></tr></table></figure>
 <p>其中<code>username</code>换成你Github的用户名，<code>useremail</code>换成你注册Github所用的邮箱
 。可以用以下两条命令检查是否填写正确：</p>
@@ -418,7 +424,7 @@ target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">官方文档</
 <img src="/img/ssh1.png" srcset="/img/loading2.gif" lazyload alt="这时你会看到的界面" />
 <figcaption aria-hidden="true">这时你会看到的界面</figcaption>
 </figure>
-<p>其中，<code>id_rsa</code>是你这台电脑的私人秘钥，<code>id_rsa.pub</code>是公共秘钥，我们要用的就是<code>id_rsa.pub</code>。选择用记事本的形式打开<code>id_rsa.pub</code>，其中的内容就是我们要的秘钥。</p>
+<p>其中，<code>id_rsa</code>是你这台电脑的私人秘钥，<code>id_rsa.pub</code>是公共秘钥，我们要用的就是<code>id_rsa.pub</code>。选择用记事本的形式打开<code>id_rsa.pub</code>，其中的内容就是我们要的公钥。</p>
 <h3 id="github创建ssh-key">3. 4 Github创建SSH Key</h3>
 <p>点击Github的头像，找到下方的<code>Settings</code>，在<code>Settings</code>中找到<code>SSH and GPG key</code>，也可以直接点击<a
 target="_blank" rel="noopener" href="https://github.com/settings/keys">链接</a>，然后点击<code>New SSH key</code></p>
