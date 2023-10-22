@@ -28,16 +28,12 @@
 <meta property="og:image" content="https://watercuckoo.top/img/hexo%E5%88%9D%E5%A7%8B%E5%8C%96.png">
 <meta property="og:image" content="https://watercuckoo.top/img/hexo%20repo1.png">
 <meta property="og:image" content="https://watercuckoo.top/img/hexo%20repo2.png">
-<meta property="og:image" content="https://watercuckoo.top/img/ssh1.png">
-<meta property="og:image" content="https://watercuckoo.top/img/ssh2.png">
-<meta property="og:image" content="https://watercuckoo.top/img/ssh3.png">
-<meta property="og:image" content="https://watercuckoo.top/img/ssh4.png">
 <meta property="og:image" content="https://watercuckoo.top/img/config1.png">
 <meta property="og:image" content="https://watercuckoo.top/img/config2.png">
 <meta property="og:image" content="https://watercuckoo.top/img/domain1.png">
 <meta property="og:image" content="https://watercuckoo.top/img/domain2.png">
 <meta property="article:published_time" content="2023-10-19T11:34:28.000Z">
-<meta property="article:modified_time" content="2023-10-22T09:22:59.207Z">
+<meta property="article:modified_time" content="2023-10-22T09:27:04.656Z">
 <meta property="article:author" content="WaTerBirD">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="博客">
@@ -277,7 +273,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.6k 字
+          3.8k 字
         
       </span>
     
@@ -288,7 +284,7 @@
         
         
         
-          39 分钟
+          32 分钟
         
       </span>
     
@@ -404,50 +400,10 @@ target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">官方文档</
 </figure>
 <p>然后其他选项保持默认即可（注意下方是否选择了
 <strong><em>Public</em></strong> 选项以免不能通过网址访问）</p>
-<h3 id="生成本地ssh"><del>3. 3 生成本地SSH</del></h3>
-<p>把本地的文件上传到Github是通过<strong>SSH</strong>传递的，因此先要在本地生成<strong>SSH秘钥</strong>。</p>
-<p>在你博客文件夹下打开终端，在终端中输入：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global user.name <span class="hljs-string">&quot;username&quot;</span><br>git config --global user.email <span class="hljs-string">&quot;useremail&quot;</span><br></code></pre></td></tr></table></figure>
-<p>其中<code>username</code>换成你Github的用户名，<code>useremail</code>换成你注册Github所用的邮箱
-。可以用以下两条命令检查是否填写正确：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config user.name<br>git config user.email<br></code></pre></td></tr></table></figure>
-<p>接下来创建SSH秘钥，输入以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-keygen -t rsa -C <span class="hljs-string">&quot;useremail&quot;</span><br></code></pre></td></tr></table></figure>
-<p>一直回车，直到它告诉你已经生成了SSH密钥秘钥，打开它所给的文件夹：</p>
-<figure>
-<img src="/img/ssh1.png" srcset="/img/loading2.gif" lazyload alt="这时你会看到的界面" />
-<figcaption aria-hidden="true">这时你会看到的界面</figcaption>
-</figure>
-<p>其中，<code>id_rsa</code>是你这台电脑的私人秘钥，<code>id_rsa.pub</code>是公共秘钥，我们要用的就是<code>id_rsa.pub</code>。选择用记事本的形式打开<code>id_rsa.pub</code>，其中的内容就是我们要的秘钥。</p>
-<h3 id="github创建ssh-key"><del>3. 4 Github创建SSH Key</del></h3>
-<p>点击Github的头像，找到下方的<code>Settings</code>，在<code>Settings</code>中找到<code>SSH and GPG key</code>，也可以直接点击<a
-target="_blank" rel="noopener" href="https://github.com/settings/keys">链接</a>，然后点击<code>New SSH key</code></p>
-<figure>
-<img src="/img/ssh2.png" srcset="/img/loading2.gif" lazyload alt="这时你会看到的界面" />
-<figcaption aria-hidden="true">这时你会看到的界面</figcaption>
-</figure>
-<p><code>Title</code>随便取，<code>Key type</code>保持默认<code>Authentication key</code>，然后在<code>Key</code>中填入你上面生成的公共秘钥<code>id_rsa.pub</code>中的内容：</p>
-<figure>
-<img src="/img/ssh3.png" srcset="/img/loading2.gif" lazyload alt="这时你会看到的界面" />
-<figcaption aria-hidden="true">这时你会看到的界面</figcaption>
-</figure>
-<p>输入完成之后点下<code>Add SSH key</code>。</p>
-<p>回到之前的终端，在终端中输入命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -T git@github.com<br></code></pre></td></tr></table></figure>
-<p>如出现如下的界面则创建SSH密钥成功：</p>
-<figure>
-<img src="/img/ssh4.png" srcset="/img/loading2.gif" lazyload alt="这时你会看到的界面" />
-<figcaption aria-hidden="true">这时你会看到的界面</figcaption>
-</figure>
-<p>若没有出现这样的界面，请回顾刚才的过程并仔细检查是否有步骤发生遗漏。</p>
-<blockquote>
-<p>最新产生的问题：如果你在校园网环境下可能会失败，因为部分校园网会屏蔽SSH端口（比如我们学校的校园网会时常抽风）</p>
-<p>解决方案：换成手机流量就可以了</p>
-</blockquote>
 <h3 id="配置_config.yml">3. 3 配置<code>_config.yml</code></h3>
 <blockquote>
 <p>2023.10.22
-更新：由于博主校园网持续屏蔽SSH端口，故放弃SSH的方法改用HTTPS</p>
+更新：由于博主校园网持续屏蔽SSH端口，故放弃SSH的方法改用HTTPS链接到仓库</p>
 </blockquote>
 <p>在你的博客文件夹主目录下的<code>_config.yml</code>是Hexo的配置文件，用记事本打开后可以根据注释按照你的情况对其进行修改。现在我们需要配置最下面的<code>deploy</code>选项，根据你的情况按照下面的格式进行填写：</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown">deploy:<br>  type: git<br>  repo: https://github.com/usergithubname/usergithubname.github.io.git<br>  branch: master<br></code></pre></td></tr></table></figure>
