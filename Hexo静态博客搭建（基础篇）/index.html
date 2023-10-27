@@ -19,30 +19,6 @@
   <meta name="keywords" content="">
   
     <meta name="description" content="如果你某一天有了一个搭建个人博客的想法，但是因为资金不足、技术栈太浅等原因导致难以从零开始搭建自己的网站，那么用Hexo搭建一个静态博客就是一个不错的选择！本站是也是一个基于Hexo搭建的个人博客，将我的搭建过程分享出来，供感兴趣的朋友参考。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hexo静态博客搭建（基础篇）">
-<meta property="og:url" content="https://watercuckoo.top/Hexo%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%EF%BC%88%E5%9F%BA%E7%A1%80%E7%AF%87%EF%BC%89/index.html">
-<meta property="og:site_name" content="WaTerBirD&#39;s Blog">
-<meta property="og:description" content="如果你某一天有了一个搭建个人博客的想法，但是因为资金不足、技术栈太浅等原因导致难以从零开始搭建自己的网站，那么用Hexo搭建一个静态博客就是一个不错的选择！本站是也是一个基于Hexo搭建的个人博客，将我的搭建过程分享出来，供感兴趣的朋友参考。">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://watercuckoo.top/img/hexo%E5%88%9D%E5%A7%8B%E5%8C%96.png">
-<meta property="og:image" content="https://watercuckoo.top/img/hexo%20repo1.png">
-<meta property="og:image" content="https://watercuckoo.top/img/hexo%20repo2.png">
-<meta property="og:image" content="https://watercuckoo.top/img/ssh1.png">
-<meta property="og:image" content="https://watercuckoo.top/img/ssh2.png">
-<meta property="og:image" content="https://watercuckoo.top/img/ssh3.png">
-<meta property="og:image" content="https://watercuckoo.top/img/ssh4.png">
-<meta property="og:image" content="https://watercuckoo.top/img/config1.png">
-<meta property="og:image" content="https://watercuckoo.top/img/config2.png">
-<meta property="og:image" content="https://watercuckoo.top/img/domain1.png">
-<meta property="og:image" content="https://watercuckoo.top/img/domain2.png">
-<meta property="article:published_time" content="2023-10-19T11:34:28.000Z">
-<meta property="article:modified_time" content="2023-10-22T11:24:26.662Z">
-<meta property="article:author" content="WaTerBirD">
-<meta property="article:tag" content="hexo">
-<meta property="article:tag" content="博客">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://watercuckoo.top/img/hexo%E5%88%9D%E5%A7%8B%E5%8C%96.png">
   
   
   
@@ -380,7 +356,8 @@ target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">官方文档</
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo g<br>hexo s<br></code></pre></td></tr></table></figure>
 <p>等待一会儿直到你看到类似如下的图片：</p>
 <figure>
-<img src="/img/hexo初始化.png" srcset="/img/loading2.gif" lazyload alt="这是你看到的内容" />
+<img src="/img/Hexo静态博客搭建（基础篇）/hexo初始化.png" srcset="/img/loading2.gif" lazyload
+alt="这是你看到的内容" />
 <figcaption aria-hidden="true">这是你看到的内容</figcaption>
 </figure>
 <p>然后在浏览器的搜索框中输入<code>localhost:4000</code>，就可以看到你部署的博客在网页中的样子了。如果你想退出预览，那么在刚才的终端页面中按下键盘上的
@@ -393,14 +370,16 @@ target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">官方文档</
 <p>登陆到Github之后（如果登陆不上Github，建议检查是否缺少相应的条件），点击右上角的
 + 号，再点击<code>New repository</code>：</p>
 <figure>
-<img src="/img/hexo%20repo1.png" srcset="/img/loading2.gif" lazyload alt="这时你会看到的界面" />
+<img src="/img/Hexo静态博客搭建（基础篇）/hexo%20repo1.png" srcset="/img/loading2.gif" lazyload
+alt="这时你会看到的界面" />
 <figcaption aria-hidden="true">这时你会看到的界面</figcaption>
 </figure>
 <p>进去之后，将这个仓库的名字改为 <code>XX.github.io</code>，其中
 <code>XX</code>
 为你的用户名（记住，一定要为你的<strong>用户名</strong>不是昵称！）：</p>
 <figure>
-<img src="/img/hexo%20repo2.png" srcset="/img/loading2.gif" lazyload alt="这时你会看到的界面" />
+<img src="/img/Hexo静态博客搭建（基础篇）/hexo%20repo2.png" srcset="/img/loading2.gif" lazyload
+alt="这时你会看到的界面" />
 <figcaption aria-hidden="true">这时你会看到的界面</figcaption>
 </figure>
 <p>然后其他选项保持默认即可（注意下方是否选择了
@@ -422,7 +401,8 @@ target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">官方文档</
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh-keygen -t rsa -C <span class="hljs-string">&quot;useremail&quot;</span><br></code></pre></td></tr></table></figure>
 <p>一直回车，直到它告诉你已经生成了SSH密钥秘钥，打开它所给的文件夹：</p>
 <figure>
-<img src="/img/ssh1.png" srcset="/img/loading2.gif" lazyload alt="这时你会看到的界面" />
+<img src="/img/Hexo静态博客搭建（基础篇）/ssh1.png" srcset="/img/loading2.gif" lazyload
+alt="这时你会看到的界面" />
 <figcaption aria-hidden="true">这时你会看到的界面</figcaption>
 </figure>
 <p>其中，<code>id_rsa</code>是你这台电脑的私人秘钥，<code>id_rsa.pub</code>是公共秘钥，我们要用的就是<code>id_rsa.pub</code>。选择用记事本的形式打开<code>id_rsa.pub</code>，其中的内容就是我们要的公钥。</p>
@@ -430,12 +410,14 @@ target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">官方文档</
 <p>点击Github的头像，找到下方的<code>Settings</code>，在<code>Settings</code>中找到<code>SSH and GPG key</code>，也可以直接点击<a
 target="_blank" rel="noopener" href="https://github.com/settings/keys">链接</a>，然后点击<code>New SSH key</code></p>
 <figure>
-<img src="/img/ssh2.png" srcset="/img/loading2.gif" lazyload alt="这时你会看到的界面" />
+<img src="/img/Hexo静态博客搭建（基础篇）/ssh2.png" srcset="/img/loading2.gif" lazyload
+alt="这时你会看到的界面" />
 <figcaption aria-hidden="true">这时你会看到的界面</figcaption>
 </figure>
 <p><code>Title</code>随便取，<code>Key type</code>保持默认<code>Authentication key</code>，然后在<code>Key</code>中填入你上面生成的公共秘钥<code>id_rsa.pub</code>中的内容：</p>
 <figure>
-<img src="/img/ssh3.png" srcset="/img/loading2.gif" lazyload alt="这时你会看到的界面" />
+<img src="/img/Hexo静态博客搭建（基础篇）/ssh3.png" srcset="/img/loading2.gif" lazyload
+alt="这时你会看到的界面" />
 <figcaption aria-hidden="true">这时你会看到的界面</figcaption>
 </figure>
 <p>输入完成之后点下<code>Add SSH key</code>。</p>
@@ -443,7 +425,8 @@ target="_blank" rel="noopener" href="https://github.com/settings/keys">链接</a
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -T git@github.com<br></code></pre></td></tr></table></figure>
 <p>如出现如下的界面则创建SSH密钥成功：</p>
 <figure>
-<img src="/img/ssh4.png" srcset="/img/loading2.gif" lazyload alt="这时你会看到的界面" />
+<img src="/img/Hexo静态博客搭建（基础篇）/ssh4.png" srcset="/img/loading2.gif" lazyload
+alt="这时你会看到的界面" />
 <figcaption aria-hidden="true">这时你会看到的界面</figcaption>
 </figure>
 <blockquote>
@@ -459,7 +442,8 @@ target="_blank" rel="noopener" href="https://github.com/settings/keys">链接</a
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs markdown">deploy:<br>  type: git<br>  repo: https://github.com/usergithubname/usergithubname.github.io.git<br>  branch: master<br></code></pre></td></tr></table></figure>
 <p>其中<code>repo</code>选择Github仓库中的HTTPS中的链接，即：</p>
 <figure>
-<img src="/img/config1.png" srcset="/img/loading2.gif" lazyload alt="这时你会看到的界面" />
+<img src="/img/Hexo静态博客搭建（基础篇）/config1.png" srcset="/img/loading2.gif" lazyload
+alt="这时你会看到的界面" />
 <figcaption aria-hidden="true">这时你会看到的界面</figcaption>
 </figure>
 <p>至此，部署到Github上的准备工作已经完成。</p>
@@ -470,7 +454,8 @@ target="_blank" rel="noopener" href="https://github.com/settings/keys">链接</a
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean<br>hexo g<br>hexo d<br></code></pre></td></tr></table></figure>
 <p>当你看到如下的界面时，你的部署就大功告成！</p>
 <figure>
-<img src="/img/config2.png" srcset="/img/loading2.gif" lazyload alt="这时你会看到的界面" />
+<img src="/img/Hexo静态博客搭建（基础篇）/config2.png" srcset="/img/loading2.gif" lazyload
+alt="这时你会看到的界面" />
 <figcaption aria-hidden="true">这时你会看到的界面</figcaption>
 </figure>
 <p>此时你的博客已经部署到Github的仓库中了，你可以在浏览器中输入<code>https://usergithubname.github.io/</code>来访问你的博客啦。这里<code>usergithubname</code>还是填你Github的用户名。</p>
@@ -496,7 +481,8 @@ target="_blank" rel="noopener" href="https://github.com/settings/keys">链接</a
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ping usergithubname.github.io<br></code></pre></td></tr></table></figure>
 <p>在这个位置会显示你的博客IP地址：</p>
 <figure>
-<img src="/img/domain1.png" srcset="/img/loading2.gif" lazyload alt="这时你会看到的界面" />
+<img src="/img/Hexo静态博客搭建（基础篇）/domain1.png" srcset="/img/loading2.gif" lazyload
+alt="这时你会看到的界面" />
 <figcaption aria-hidden="true">这时你会看到的界面</figcaption>
 </figure>
 <p>然后在你DNS解析商处打开你的域名管理，在DNS解析处添加两条记录：<strong>A</strong>和<strong>CNAME</strong></p>
@@ -527,7 +513,8 @@ target="_blank" rel="noopener" href="https://github.com/settings/keys">链接</a
 <p>这样确保你的DNS解析商知道你的域名是指向哪里（由于DNS缓存的原因要过上一小段时间才能更新，所以添加完还不能立马访问哦）</p>
 <p>然后打开Github中你部署博客的仓库，在仓库上方找到<code>Settings</code>，打开后在左侧找到<code>Pages</code>，在里面找到<code>Custom domain</code>，并把你<strong>申请的域名</strong>添加到里面，记得勾选下面的<code>Enforce HTTPS</code>：</p>
 <figure>
-<img src="/img/domain2.png" srcset="/img/loading2.gif" lazyload alt="这时你会看到的界面" />
+<img src="/img/Hexo静态博客搭建（基础篇）/domain2.png" srcset="/img/loading2.gif" lazyload
+alt="这时你会看到的界面" />
 <figcaption aria-hidden="true">这时你会看到的界面</figcaption>
 </figure>
 <p>然后在你的本地部署博客文件夹的主目录中找到<code>source</code>文件夹，在<code>source</code>文件夹下新建文本文档并命名为<code>CNAME.txt</code>，用记事本打开后输入<strong>你申请的域名</strong>，保存退出，然后删掉这个文件<code>CNAME.txt</code>的后缀<code>.txt</code>。</p>
