@@ -467,7 +467,7 @@ aria-hidden="true">添加内容或解开相关的注释，PHP版本选择你下�
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">nginx -t<br>sudo service nginx restart<br></code></pre></td></tr></table></figure>
 <p>此时做一个PHP探针检验下配置文件是否生效，在终端中输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">touch</span> /var/www/html/phpinfo.php<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;&lt;?php phpinfo(); ?&gt;&quot;</span> &gt;&gt; /var/www/html/phpinfo.php<br></code></pre></td></tr></table></figure>
-<p>然后在浏览器地址栏中输入<code>Your_rapi_IP/phpinfo.php</code>，你将会看到以下画面：</p>
+<p>然后在浏览器地址栏中输入<code>Your_raspi_IP/phpinfo.php</code>，你将会看到以下画面：</p>
 <p><img src="/img/基于LNMP环境自建树莓派Web服务器/phpinfo.png" srcset="/img/loading2.gif" lazyload /></p>
 <p>至此，LNMP框架基本搭建完成。</p>
 <h2 id="内网穿透ssl证书安装">4. 内网穿透（SSL证书安装）</h2>
