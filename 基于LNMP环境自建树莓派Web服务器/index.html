@@ -321,25 +321,24 @@ Pi
 Pi
 3B的，但是由于当时专业知识不够，不知道能用树莓派干些什么，所以这块3B也一直放在柜子里吃灰（泪）。不过大一学习了Linux系统的相关知识之后，查阅资料发现有不少人用树莓派来<u>搭建个人服务器</u>，再加上4B性能方面相较于3B有了很大的提升，于是我尝试着在宿舍利用树莓派搭建一个私人小型服务器来供学习使用。</p>
 <span id="more"></span>
-<p>最开始我想利用树莓派搭建一个NAS私有云文件管理系统，不过想了想在宿舍其实用处不大，再加上树莓派的处理速度有限，很难有比较好的使用体验。后来我想到了<strong>目前搭建个人博客的云服务器</strong>，对于小型个人博客的部署树莓派完全能够胜任，于是着手利用树莓派搭建一个Web服务器。</p>
+<p>最开始我想利用树莓派搭建一个NAS私有云文件管理系统，不过想了想在宿舍其实用处不大，再加上树莓派的处理速度有限，很难有比较好的使用体验。后来我想到了目前比较火热的<strong>用于个人使用的ECS云服务器</strong>。树莓派完全能够胜任小型个人网站的部署，于是我着手利用树莓派搭建一个Web服务器。</p>
 <h2 id="树莓派">1. 树莓派</h2>
 <p>截至目前（2023.11.17），树莓派已经发行到Raspberry Pi
 5（应该还在预售？），各大电商厂家都能够买到，<strong>4B</strong>的均价在<strong>￥400</strong>左右，<strong>3B</strong>的均价在<strong>￥300</strong>左右，此外树莓派还有其他如Zero
-W型号。本文采用的是<strong>Raspberry Pi 4B</strong>。</p>
+W等型号。本文采用的是<strong>Raspberry Pi 4B</strong>。</p>
 <blockquote>
 <p>树莓派是Raspberry
 Pi基金会用于教育使用的卡片式电脑，最初售价为$30左右，但是由于全球芯片危机，芯片半导体供应紧张限制了电子设备产业发展，在全球缺芯问题的影响下于2021年首次涨价，不过近几年树莓派的价格趋于平缓。</p>
 </blockquote>
-<p>树莓派本身继承很多个人电脑的特点，将所有的元件集成到一块基于ARM的微型电脑主板上，具备所有PC的基本功能。目前开发者已经推出了适用于树莓派的Linux、Windows系统，只要你有一张烧录好的TF卡，就能随时开启属于你的个人电脑！（不过是只有电路板的电脑罢了）树莓派的功耗非常小，在满载的状态下测试一年电费才￥30左右，所以不用担心树莓派的功耗问题。</p>
+<p>树莓派本身继承很多个人电脑的特点，将所有的元件集成到一块基于ARM的微型电脑主板上，具备所有PC的基本功能。目前开发者已经推出了适用于树莓派的Linux、Windows系统，只要你有一张烧录好的TF卡，就能随时开启属于你的个人电脑（不过是只有电路板的电脑罢了）！树莓派的功耗非常小，在满载的状态下测试一年电费才￥30左右，所以不用担心树莓派的功耗问题。</p>
 <p>本文所搭建的服务器采用<strong><em>Ubuntu Server for Raspberry
 Pi</em></strong>系统，所以在阅读本文的时候，最好有一点Linux操作系统的知识哦。</p>
 <p>在正式开始搭建服务器，<strong>请准备好以下几件东西：</strong></p>
 <ul>
-<li><strong>Raspberry Pi电路板</strong></li>
+<li><strong>Raspberry Pi</strong></li>
 <li><strong>TF卡（内存够用就行）</strong></li>
 <li><strong>读卡器</strong></li>
 <li><strong>个人电脑</strong></li>
-<li><strong>电源线</strong></li>
 </ul>
 <h2 id="ubuntu-server">2. Ubuntu Server</h2>
 <h3 id="下载镜像文件">2. 1 下载镜像文件</h3>
@@ -352,11 +351,11 @@ Raspberry Pi</a> 下载操作系统镜像文件</p>
 alt="找到并选择图中红框内的下载" />
 <figcaption aria-hidden="true">找到并选择图中红框内的下载</figcaption>
 </figure>
-<p>由于本文将在终端中进行而不会用到图形化界面，为了节约TF卡里少量的空间请选择Server版本而不要下载Desktop版本。下载结束之后，你应该会得到类似于<code>ubuntu-22.04.3-preinstalled-server-arm64+raspi.img.xz</code>文件名的镜像文件。</p>
+<p>由于本文将在终端中进行而不会用到图形化界面，为了节约TF卡里少量的空间<u>请选择Server版本而不要下载Desktop版本</u>。下载结束之后，你应该会得到类似于<code>ubuntu-22.04.3-preinstalled-server-arm64+raspi.img.xz</code>文件名的镜像文件。</p>
 <h3 id="烧录tf卡">2. 2 烧录TF卡</h3>
 <blockquote>
-<p>如果你熟练掌握如何烧录一个操作系统到一张TF卡上，请跳过这一步。</p>
-<p>如果你不太清楚如何烧录且你的TF不是新的，<strong>请提前对TF卡上重要文件进行备份</strong>以免重要数据丢失。</p>
+<p>如果你熟练掌握如何将一个操作系统烧录到一张TF卡上，请跳过这一步。</p>
+<p>如果你不太清楚如何烧录且你的TF不是新的，<strong><u>请提前对TF卡上重要文件进行备份</u></strong>以免重要数据丢失。</p>
 </blockquote>
 <p>下载<strong><a
 target="_blank" rel="noopener" href="https://www.diskgenius.cn/download.php">DiskGenius</a>（磁盘格式化工具）</strong>，用读卡器将TF卡插入你的个人电脑，依次对TF卡进行【删除分区】-&gt;【新建分区】-&gt;【保存更改】-&gt;【格式化】。</p>
@@ -373,7 +372,9 @@ target="_blank" rel="noopener" href="https://rufus.ie/zh/">Rufus</a>（镜像烧
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl <span class="hljs-built_in">enable</span> wpa_supplicant<br>systemctl start wpa_supplicant<br>netplan generate<br>systemctl daemon-reload<br>netplan apply<br></code></pre></td></tr></table></figure>
 <h4 id="无显示屏">2. 3. 2 无显示屏</h4>
 <p>如果你不幸没有一块显示屏，那么保持你的TF卡插在你的个人电脑上，<strong>不要把TF卡插到树莓派上</strong>。上一步完成之后，可能会出现<strong>找不到磁盘</strong>的情况，应该是因为烧录的文件系统与Windows的文件系统不匹配，Windows无法识别。如果你的磁盘发生了丢失，但是电脑显示插入了这个设备，那么接下来的操作<u>请在DiskGenius进行</u>（DiskGenius中能识别烧录的文件系统）。</p>
-<p>在TF卡中的<code>system-boot</code>下找到<code>network-config</code>，选择用【记事本】打开，按照有显示屏的步骤进行修改即可。保存退出后，就可以把TF卡插到树莓派里面了。</p>
+<p>在TF卡中的<code>system-boot</code>下找到<code>network-config</code>，选择用【记事本】打开，按照【<strong>2.
+3. 1
+有显示屏</strong>】的步骤进行修改即可。保存退出后，就可以把TF卡插到树莓派里面了。</p>
 <h3 id="ssh连接">2. 4 SSH连接</h3>
 <p>在浏览器登录到路由器的内网管理系统中（TP-Link的应该是192.168.1.1，其他厂家请查看路由器后的地址），在管理页面找到一个用户名为【ubuntu】的用户，记录<strong>IP地址</strong>。SSH连接工具很多，比如Putty，Xshell等等。本文为了演示方便使用<strong>Windows终端自带的SSH</strong>连接。</p>
 <p>打开Windows终端，输入以下命令：</p>
@@ -385,27 +386,27 @@ alt="如果出现这个画面表示连接成功" />
 <figcaption aria-hidden="true">如果出现这个画面表示连接成功</figcaption>
 </figure>
 <h3 id="更换系统软件源">2. 5 更换系统软件源</h3>
-<p>如果看到这一步都没有问题的话，恭喜你已经有了一台基本可以操作的服务器了，只要是处于同一互联网下可以随时进行操作。更换系统软件源是为了让系统的软件更新加快（因为默认软件源在国外，所以时不时会连不上），本文以清华镜像源为例。</p>
+<p>如果看到这一步都没有问题的话，恭喜你已经有了一台基本可以操作的服务器了，只要是处于同一互联网下可以随时进行操作。更换系统软件源是为了让系统的软件更新速度加快（因为默认软件源在国外，所以时不时会连不上），本文以清华镜像源为例。</p>
 <p>进入<a
-target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu-ports/">清华镜像源</a>，选择Ubuntu系统（根据你烧录的操作系统），其他默认就好，下面代码框中的内容就是待会需要添加的内容。</p>
-<p>然后到SSH终端中去，输入以下命令：</p>
+target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu-ports/">清华镜像源</a>，选择Ubuntu系统（根据你烧录的版本进行选择），其他默认就好，下面代码框中的内容就是待会儿需要添加的内容。</p>
+<p>然后到SSH终端中，输入以下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo -i<br>vi /etc/apt/sources.list<br></code></pre></td></tr></table></figure>
 <p>把刚刚清华镜像源代码框里面的内容复制到里面去（如果你对Vim的操作还不是太熟悉的话，建议去学习一些简单的操作）：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="hljs-string">deb</span> <span class="hljs-string">https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/</span> <span class="hljs-string">jammy</span> <span class="hljs-string">main</span> <span class="hljs-string">restricted</span> <span class="hljs-string">universe</span> <span class="hljs-string">multiverse</span><br><span class="hljs-comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy main restricted universe multiverse</span><br><span class="hljs-string">deb</span> <span class="hljs-string">https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/</span> <span class="hljs-string">jammy-updates</span> <span class="hljs-string">main</span> <span class="hljs-string">restricted</span> <span class="hljs-string">universe</span> <span class="hljs-string">multiverse</span><br><span class="hljs-comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-updates main restricted universe multiverse</span><br><span class="hljs-string">deb</span> <span class="hljs-string">https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/</span> <span class="hljs-string">jammy-backports</span> <span class="hljs-string">main</span> <span class="hljs-string">restricted</span> <span class="hljs-string">universe</span> <span class="hljs-string">multiverse</span><br><span class="hljs-comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-backports main restricted universe multiverse</span><br><br><span class="hljs-string">deb</span> <span class="hljs-string">http://ports.ubuntu.com/ubuntu-ports/</span> <span class="hljs-string">jammy-security</span> <span class="hljs-string">main</span> <span class="hljs-string">restricted</span> <span class="hljs-string">universe</span> <span class="hljs-string">multiverse</span><br><span class="hljs-comment"># deb-src http://ports.ubuntu.com/ubuntu-ports/ jammy-security main restricted universe multiverse</span><br><br><span class="hljs-comment"># 预发布软件源，不建议启用</span><br><span class="hljs-comment"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-proposed main restricted universe multiverse</span><br><span class="hljs-comment"># # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-proposed main restricted universe multiverse</span><br></code></pre></td></tr></table></figure>
 <p>更换完之后保存退出。在终端中输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt update &amp;&amp; apt upgrade<br></code></pre></td></tr></table></figure>
-<p>来使你的软件源更新并为你的系统获取最新的软件包。</p>
+<p>使你的软件源配置更新并为你的系统获取最新的软件包。</p>
 <h3 id="设置静态ip">2. 6 设置静态IP*</h3>
 <p>由于Ubuntu
-Server默认打开DHCP，所以可能会出现每次重启之后局域网IP地址会发生改变的情况，导致SSH等连接不上服务器。因此在服务器运维中设置一个静态IP是非常有必要的。</p>
+Server默认打开DHCP，所以可能会出现每次重启之后局域网IP地址会发生改变的情况，导致SSH连接不上服务器等问题。因此在服务器运维中设置一个静态局域网IP是非常有必要的。</p>
 <p>在终端中输入如下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim /etc/netplan/50-cloud-init.yaml<br></code></pre></td></tr></table></figure>
-<p>可能<code>netplan</code>文件夹下的文件名不同，请修改自己文件夹下的那个文件。</p>
-<p>在配置中修改为以下内容：</p>
+<p>可能<code>netplan</code>文件夹下的文件名不同，请以自己文件夹下的那个文件名为准。</p>
+<p>将配置文件中的内容修改为以下内容：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># This file is generated from information provided by the datasource.  Changes</span><br><span class="hljs-comment"># to it will not persist across an instance reboot.  To disable cloud-init&#x27;s</span><br><span class="hljs-comment"># network configuration capabilities, write a file</span><br><span class="hljs-comment"># /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:</span><br><span class="hljs-comment"># network: &#123;config: disabled&#125;</span><br><span class="hljs-attr">network:</span><br>    <span class="hljs-attr">ethernets:</span><br>        <span class="hljs-attr">eth0:</span><br>            <span class="hljs-attr">dhcp4:</span> <span class="hljs-literal">true</span><br>            <span class="hljs-attr">optional:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">version:</span> <span class="hljs-number">2</span><br>    <span class="hljs-attr">wifis:</span><br>        <span class="hljs-attr">wlan0:</span><br>            <span class="hljs-attr">access-points:</span><br>                <span class="hljs-attr">&quot;Your_wifi_name&quot;:</span><br>                    <span class="hljs-attr">password:</span> <span class="hljs-string">Your_wifi_password</span><br>            <span class="hljs-attr">dhcp4:</span> <span class="hljs-literal">false</span><br>            <span class="hljs-attr">addresses:</span><br>                <span class="hljs-bullet">-</span> <span class="hljs-number">192.168</span><span class="hljs-number">.1</span><span class="hljs-number">.111</span><span class="hljs-string">/24</span> <span class="hljs-comment"># Your_Static_IP/Mask</span><br>            <span class="hljs-attr">routes:</span><br>                <span class="hljs-bullet">-</span> <span class="hljs-attr">to:</span> <span class="hljs-string">default</span><br>                  <span class="hljs-attr">via:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.1</span><span class="hljs-number">.1</span> <span class="hljs-comment"># Your_gateway</span><br>            <span class="hljs-attr">nameservers:</span><br>                <span class="hljs-attr">addresses:</span><br>                    <span class="hljs-bullet">-</span> <span class="hljs-number">223.5</span><span class="hljs-number">.5</span><span class="hljs-number">.5</span> <span class="hljs-comment">#DNS</span><br>                    <span class="hljs-bullet">-</span> <span class="hljs-number">8.8</span><span class="hljs-number">.8</span><span class="hljs-number">.8</span><br>            <span class="hljs-attr">optional:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
 <p>保存退出之后，在再次终端中输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl <span class="hljs-built_in">enable</span> wpa_supplicant<br>systemctl start wpa_supplicant<br>netplan generate<br>systemctl daemon-reload<br>netplan apply<br></code></pre></td></tr></table></figure>
-<p>重启之后静态IP地址就应该生效了。</p>
+<p>重启之后静态局域网IP地址就应该生效了。</p>
 <h2 id="lnmp">3. LNMP</h2>
 <p>至此，一个基本的Ubuntu
 Server系统就搭建好了。在这个系统基础上，我们来搭建<strong>Web服务器</strong>。</p>
@@ -419,11 +420,11 @@ Server系统就搭建好了。在这个系统基础上，我们来搭建<strong>
 </ul>
 <p>在LNMP流行之前，还有个LAMP框架，其中A指的是Apache，在对于PHP动态资源的处理上略有不同。但相比Apache，Nginx
 使用更少的资源，支持更多的并发连接，体现更高的效率。</p>
-<p>整个服务器的作用原理其实很简单：</p>
+<p>整个服务器的<strong>作用原理</strong>其实很简单：</p>
 <ul>
 <li>用户在浏览器中请求HTTP请求。</li>
 <li>Nginx接收到请求。若为静态请求则直接解析返回；若为动态请求，则调用Fast-CGI接口，发送给PHP-FPM模块解析。</li>
-<li>若动态请求需要调用数据库，则将请求发送给MySQL数据库，读取需要的数据。</li>
+<li>若动态请求需要调用数据库，PHP-FPM则将调用数据库请求发送给MySQL数据库，读取需要的数据。</li>
 <li>将解析结果通过Fast-CGI返回Nginx，Nginx再将解析结果发送到用户浏览器。</li>
 <li>用户浏览器通过返回来的内容进行解析渲染呈现出来。</li>
 </ul>
@@ -450,11 +451,10 @@ src="/img/基于LNMP环境自建树莓派Web服务器/nginx-status.png" srcset="
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install -y mysql-server<br></code></pre></td></tr></table></figure>
 <h4 id="安装php">3. 2. 3 安装PHP</h4>
 <p>打开SSH终端，在终端中输入：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install php8.1-cli php8.1-dev php8.1-fpm php8.1-cgi php8.1-mysql php8.1-gd php8.1-curl php8.1-memcache<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt-get install -y php8.1-cli php8.1-dev php8.1-fpm php8.1-cgi php8.1-mysql php8.1-gd php8.1-curl php8.1-memcache<br></code></pre></td></tr></table></figure>
 <p>版本号可以选择你想要的版本号。</p>
 <h4 id="配置nginx连接php">3. 2. 4 配置Nginx连接PHP</h4>
-<p>Nginx默认没有与PHP建立连接，Nginx调用PHP-FPM需要在配置文件中手动打开。</p>
-<p>在终端中输入：</p>
+<p>Nginx默认没有与PHP建立连接，为了Nginx能够调用PHP-FPM需要在配置文件中手动打开。在终端中输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim /etc/nginx/sites-enabled/default<br></code></pre></td></tr></table></figure>
 <p>然后将配置文件找到如下部分进行修改：</p>
 <figure>
@@ -475,8 +475,8 @@ aria-hidden="true">添加内容或解开相关的注释，PHP版本选择你下�
 <p>第一种方法是到网络运营商处申请公网IP（听别人说要死缠烂打工人师傅才会给你=
 =），然后通过公网IP进行访问。</p>
 <p>第二种方式是<strong>内网穿透</strong>，即NAT穿透，实质是利用路由器上的NAT系统，将私有（保留）地址转化为合法IP地址的转换技术。通过代理服务器建立内网机器(Client)发起向外网服务器(Server)的连接。目前比较好用的内网穿透服务有Cpolar，Ngrok等等，可以自行搜索相关的教程进行配置。</p>
-<p>这里简单说下关于SSL证书安装的方法。如果你想让你的自定义域名建立HTTPS的安全链接，建议在CDN服务商如Cloudflare处更改SSL加密模式，配置SSL源服务器证书。</p>
-<p>我在网络上找了很多SSL安装教程，与Ubuntu Server for Rapberry
+<p>这里简单说下关于SSL证书安装的方法。如果你想让你的自定义域名建立HTTPS的安全链接，建议在CDN服务商（如Cloudflare）处更改SSL加密模式，配置SSL源服务器证书。</p>
+<p>我在网络上找了很多SSL证书安装教程，与Ubuntu Server for Rapberry
 Pi系统的安装略有出入，下面我介绍本系统的安装方法。</p>
 <h3 id="生成ssl证书">4. 1 生成SSL证书</h3>
 <p>以Cloudflare为例，在你的域名站点处左侧找到【<strong>SSL/TLS</strong>】，在【概述】中将加密模式改为<strong>完全</strong>。</p>
