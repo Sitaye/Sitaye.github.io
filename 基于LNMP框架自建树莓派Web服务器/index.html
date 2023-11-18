@@ -396,9 +396,9 @@ target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/u
 <p>更换完之后保存退出。在终端中输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt update &amp;&amp; apt upgrade<br></code></pre></td></tr></table></figure>
 <p>使你的软件源配置更新并为你的系统获取最新的软件包。</p>
-<h3 id="设置静态ip">2. 6 设置静态IP*</h3>
+<h3 id="设置静态局域网ip">2. 6 设置静态局域网IP*</h3>
 <p>由于Ubuntu
-Server默认打开DHCP，所以可能会出现每次重启之后局域网IP地址会发生改变的情况，导致SSH连接不上服务器等问题。因此在服务器运维中设置一个静态局域网IP是非常有必要的。</p>
+Server默认打开<strong>DHCP</strong>，所以可能会出现每次重启之后局域网IP地址会发生改变的情况，导致SSH连接不上服务器等问题。因此在服务器运维中设置一个<strong>静态局域网IP</strong>是非常有必要的。</p>
 <p>在终端中输入如下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim /etc/netplan/50-cloud-init.yaml<br></code></pre></td></tr></table></figure>
 <p>可能<code>netplan</code>文件夹下的文件名不同，请以自己文件夹下的那个文件名为准。</p>
