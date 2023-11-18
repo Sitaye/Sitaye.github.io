@@ -22,7 +22,7 @@
   
   
   
-  <title>基于LNMP环境自建树莓派Web服务器 - WaTerBirD&#39;s Blog</title>
+  <title>基于LNMP框架自建树莓派Web服务器 - WaTerBirD&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -230,7 +230,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="基于LNMP环境自建树莓派Web服务器"></span>
+            <span id="subtitle" data-typed-text="基于LNMP框架自建树莓派Web服务器"></span>
           
         </div>
 
@@ -310,7 +310,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">基于LNMP环境自建树莓派Web服务器</h1>
+            <h1 id="seo-header">基于LNMP框架自建树莓派Web服务器</h1>
             
             
               <div class="markdown-body">
@@ -347,7 +347,7 @@ Server for Raspberry Pi</em></strong>系统，现在请前往 <a
 target="_blank" rel="noopener" href="https://ubuntu.com/download/raspberry-pi">Install Ubuntu on a
 Raspberry Pi</a> 下载操作系统镜像文件</p>
 <figure>
-<img src="/img/基于LNMP环境自建树莓派Web服务器/ubuntuserver.jpg" srcset="/img/loading2.gif" lazyload
+<img src="/img/基于LNMP框架自建树莓派Web服务器/ubuntuserver.jpg" srcset="/img/loading2.gif" lazyload
 alt="找到并选择图中红框内的下载" />
 <figcaption aria-hidden="true">找到并选择图中红框内的下载</figcaption>
 </figure>
@@ -381,7 +381,7 @@ target="_blank" rel="noopener" href="https://rufus.ie/zh/">Rufus</a>（镜像烧
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -v ubuntu@Your_raspi_IP<br></code></pre></td></tr></table></figure>
 <p>其中<code>Your_raspi_IP</code>填写刚刚查到的IP地址。连接过程中会让你输入密码，默认密码为<code>ubuntu</code>，如果修改过了就填写修改过的密码。连接成功后，你将会看到下面的画面：</p>
 <figure>
-<img src="/img/基于LNMP环境自建树莓派Web服务器/ssh.png" srcset="/img/loading2.gif" lazyload
+<img src="/img/基于LNMP框架自建树莓派Web服务器/ssh.png" srcset="/img/loading2.gif" lazyload
 alt="如果出现这个画面表示连接成功" />
 <figcaption aria-hidden="true">如果出现这个画面表示连接成功</figcaption>
 </figure>
@@ -438,14 +438,14 @@ Server系统就搭建好了。在这个系统基础上，我们来搭建<strong>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo service nginx start<br></code></pre></td></tr></table></figure>
 <p>此时Nginx服务已经启动，在其他设备的浏览器地址栏中输入树莓派的IP地址。你将会看到以下页面：</p>
 <figure>
-<img src="/img/基于LNMP环境自建树莓派Web服务器/nginx.png" srcset="/img/loading2.gif" lazyload
+<img src="/img/基于LNMP框架自建树莓派Web服务器/nginx.png" srcset="/img/loading2.gif" lazyload
 alt="如果出现这个画面表示开启成功" />
 <figcaption aria-hidden="true">如果出现这个画面表示开启成功</figcaption>
 </figure>
 <p>此时Nginx开启并正常运行。你可以在终端中输入如下命令来检查Nginx的运行状态：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo service nginx status<br></code></pre></td></tr></table></figure>
 <p><img
-src="/img/基于LNMP环境自建树莓派Web服务器/nginx-status.png" srcset="/img/loading2.gif" lazyload /></p>
+src="/img/基于LNMP框架自建树莓派Web服务器/nginx-status.png" srcset="/img/loading2.gif" lazyload /></p>
 <h4 id="安装mysql">3. 2. 2 安装MySQL</h4>
 <p>打开SSH终端，输入以下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt install -y mysql-server<br></code></pre></td></tr></table></figure>
@@ -458,7 +458,7 @@ src="/img/基于LNMP环境自建树莓派Web服务器/nginx-status.png" srcset="
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim /etc/nginx/sites-enabled/default<br></code></pre></td></tr></table></figure>
 <p>然后将配置文件找到如下部分进行修改：</p>
 <figure>
-<img src="/img/基于LNMP环境自建树莓派Web服务器/nginx-php.png" srcset="/img/loading2.gif" lazyload
+<img src="/img/基于LNMP框架自建树莓派Web服务器/nginx-php.png" srcset="/img/loading2.gif" lazyload
 alt="添加内容或解开相关的注释，PHP版本选择你下载的版本" />
 <figcaption
 aria-hidden="true">添加内容或解开相关的注释，PHP版本选择你下载的版本</figcaption>
@@ -468,7 +468,7 @@ aria-hidden="true">添加内容或解开相关的注释，PHP版本选择你下�
 <p>此时做一个PHP探针检验下配置文件是否生效，在终端中输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">touch</span> /var/www/html/phpinfo.php<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;&lt;?php phpinfo(); ?&gt;&quot;</span> &gt;&gt; /var/www/html/phpinfo.php<br></code></pre></td></tr></table></figure>
 <p>然后在浏览器地址栏中输入<code>Your_raspi_IP/phpinfo.php</code>，你将会看到以下画面：</p>
-<p><img src="/img/基于LNMP环境自建树莓派Web服务器/phpinfo.png" srcset="/img/loading2.gif" lazyload /></p>
+<p><img src="/img/基于LNMP框架自建树莓派Web服务器/phpinfo.png" srcset="/img/loading2.gif" lazyload /></p>
 <p>至此，LNMP框架基本搭建完成。</p>
 <h2 id="内网穿透ssl证书安装">4. 内网穿透（SSL证书安装）</h2>
 <p>恭喜，你现在有了一个可以在局域网内访问的服务器！不过如果你想把你的服务器放在公网中访问该怎么办呢？</p>
@@ -481,12 +481,12 @@ Pi系统的安装略有出入，下面我介绍本系统的安装方法。</p>
 <h3 id="生成ssl证书">4. 1 生成SSL证书</h3>
 <p>以Cloudflare为例，在你的域名站点处左侧找到【<strong>SSL/TLS</strong>】，在【概述】中将加密模式改为<strong>完全</strong>。</p>
 <p>找到【源服务器】，在【源证书】处点击【创建证书】：</p>
-<p><img src="/img/基于LNMP环境自建树莓派Web服务器/ssl.png" srcset="/img/loading2.gif" lazyload /></p>
+<p><img src="/img/基于LNMP框架自建树莓派Web服务器/ssl.png" srcset="/img/loading2.gif" lazyload /></p>
 <p>在主机名选择你自己服务器的域名：</p>
 <p><img
-src="/img/基于LNMP环境自建树莓派Web服务器/ssl_install.png" srcset="/img/loading2.gif" lazyload /></p>
+src="/img/基于LNMP框架自建树莓派Web服务器/ssl_install.png" srcset="/img/loading2.gif" lazyload /></p>
 <p>新建文本文档将里面的源证书和私钥保存下来备用：</p>
-<p><img src="/img/基于LNMP环境自建树莓派Web服务器/pem_key.png" srcset="/img/loading2.gif" lazyload /></p>
+<p><img src="/img/基于LNMP框架自建树莓派Web服务器/pem_key.png" srcset="/img/loading2.gif" lazyload /></p>
 <h3 id="安装ssl证书">4. 2 安装SSL证书</h3>
 <p>打开SSH终端，在终端中输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim /etc/nginx/cert/ssl.pem<br></code></pre></td></tr></table></figure>
@@ -497,7 +497,7 @@ src="/img/基于LNMP环境自建树莓派Web服务器/ssl_install.png" srcset="/
 <p>打开SSH终端，在终端中输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim /etc/nginx/sites-enabled/default<br></code></pre></td></tr></table></figure>
 <p>解除图示位置的注释，开启443端口：</p>
-<p><img src="/img/基于LNMP环境自建树莓派Web服务器/443.png" srcset="/img/loading2.gif" lazyload /></p>
+<p><img src="/img/基于LNMP框架自建树莓派Web服务器/443.png" srcset="/img/loading2.gif" lazyload /></p>
 <p>在配置文件中找到添加或修改如下内容：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-string">root</span> <span class="hljs-string">/var/www/blog;</span><br><br><span class="hljs-comment"># Add index.php to the list if you are using PHP</span><br><span class="hljs-string">index</span> <span class="hljs-string">index.html</span> <span class="hljs-string">index.htm</span> <span class="hljs-string">index.nginx-debian.html</span> <span class="hljs-string">index.php;</span><br><br><span class="hljs-string">ssl_certificate</span> <span class="hljs-string">/etc/nginx/cert/ssl.pem;</span><br><span class="hljs-string">ssl_certificate_key</span> <span class="hljs-string">/etc/nginx/cert/ssl.key;</span><br><span class="hljs-string">server_name</span> <span class="hljs-string">Your_site_domain;</span><br><br><span class="hljs-string">location</span> <span class="hljs-string">/</span> &#123;<br>        <span class="hljs-comment"># First attempt to serve request as file, then</span><br>        <span class="hljs-comment"># as directory, then fall back to displaying a 404.</span><br>        <span class="hljs-string">try_files</span> <span class="hljs-string">$uri</span> <span class="hljs-string">$uri/</span> <span class="hljs-string">=404;</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <p>将<code>Your_site_domain</code>修改成你的域名。保存退出后在终端中输入以下命令：</p>
@@ -537,8 +537,8 @@ src="/img/基于LNMP环境自建树莓派Web服务器/ssl_install.png" srcset="/
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>基于LNMP环境自建树莓派Web服务器</div>
-      <div>https://watercuckoo.top/基于LNMP环境自建树莓派Web服务器/</div>
+      <div>基于LNMP框架自建树莓派Web服务器</div>
+      <div>https://watercuckoo.top/基于LNMP框架自建树莓派Web服务器/</div>
     </div>
     <div class="license-meta">
       
