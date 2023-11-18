@@ -265,7 +265,7 @@
         
         
           <!-- compatible with older versions-->
-          约 40 分钟
+          约 41 分钟
         
       </span>
     
@@ -368,7 +368,7 @@ alt="这是你看到的内容" />
 <p>Hexo生成静态博客的实质是生成了<strong>静态网页文件</strong>，然后通过访问这些网页文件达到浏览博客的效果。Github作为全球最大的代码托管平台，将本地的文件部署Github上，再通过Github提供的网址访问，就能直接在网页上浏览你的博客了。当然你也可以选择购买一台云服务器直接部署到你的云服务器上，不过博主手头比较紧辣，所以还是选择Free的Github吧。</p>
 <h3 id="创建仓库">3. 2 创建仓库</h3>
 <p>登陆到Github之后（如果登陆不上Github，建议检查是否缺少相应的条件），点击右上角的
-+ 号，再点击<code>New repository</code>：</p>
++ 号，再点击【<strong>New repository</strong>】：</p>
 <figure>
 <img src="/img/Hexo静态博客搭建（基础篇）/hexo%20repo1.png" srcset="/img/loading2.gif" lazyload
 alt="这时你会看到的界面" />
@@ -382,8 +382,7 @@ alt="这时你会看到的界面" />
 alt="这时你会看到的界面" />
 <figcaption aria-hidden="true">这时你会看到的界面</figcaption>
 </figure>
-<p>然后其他选项保持默认即可（注意下方是否选择了
-<strong><em>Public</em></strong> 选项以免不能通过网址访问）</p>
+<p>然后其他选项保持默认即可（注意下方是否选择了【<strong>Public</strong>】选项以免不能通过网址访问）</p>
 <h3 id="生成本地ssh">3. 3 生成本地SSH</h3>
 <p>SSH是一种<strong>网络协议</strong>，让我们能够安全地登陆到Github上，有效防止远程管理过程中的信息泄露问题。其具体的实现过程如下：</p>
 <ul>
@@ -407,8 +406,10 @@ alt="这时你会看到的界面" />
 </figure>
 <p>其中，<code>id_rsa</code>是你这台电脑的私人秘钥，<code>id_rsa.pub</code>是公共秘钥，我们要用的就是<code>id_rsa.pub</code>。选择用记事本的形式打开<code>id_rsa.pub</code>，其中的内容就是我们要的公钥。</p>
 <h3 id="github创建ssh-key">3. 4 Github创建SSH Key</h3>
-<p>点击Github的头像，找到下方的<code>Settings</code>，在<code>Settings</code>中找到<code>SSH and GPG key</code>，也可以直接点击<a
-target="_blank" rel="noopener" href="https://github.com/settings/keys">链接</a>，然后点击<code>New SSH key</code></p>
+<p>点击Github的头像，找到下方的【<strong>Settings</strong>】，在【<strong>Settings</strong>】中找到【<strong>SSH
+and GPG key</strong>】，也可以直接点击<a
+target="_blank" rel="noopener" href="https://github.com/settings/keys">链接</a>，然后点击【<strong>New
+SSH key</strong>】</p>
 <figure>
 <img src="/img/Hexo静态博客搭建（基础篇）/ssh2.png" srcset="/img/loading2.gif" lazyload
 alt="这时你会看到的界面" />
@@ -420,7 +421,7 @@ alt="这时你会看到的界面" />
 alt="这时你会看到的界面" />
 <figcaption aria-hidden="true">这时你会看到的界面</figcaption>
 </figure>
-<p>输入完成之后点下<code>Add SSH key</code>。</p>
+<p>输入完成之后点下【<strong>Add SSH key</strong>】。</p>
 <p>回到之前的终端，在终端中输入命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh -T git@github.com<br></code></pre></td></tr></table></figure>
 <p>如出现如下的界面则创建SSH密钥成功：</p>

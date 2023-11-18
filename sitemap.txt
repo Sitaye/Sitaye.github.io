@@ -4,3 +4,7 @@ https://watercuckoo.top/about/index.html
 https://watercuckoo.top/
 https://watercuckoo.top/tags/Hexo/
 https://watercuckoo.top/tags/%E5%8D%9A%E5%AE%A2/
+https://watercuckoo.top/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/
+https://watercuckoo.top/tags/Raspberry-Pi/
+https://watercuckoo.top/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/
+https://watercuckoo.top/tags/LNMP/
