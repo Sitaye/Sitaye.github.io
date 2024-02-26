@@ -253,7 +253,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8.5k 字
+          8.6k 字
         
       </span>
     
@@ -265,7 +265,7 @@
         
         
           <!-- compatible with older versions-->
-          约 71 分钟
+          约 72 分钟
         
       </span>
     
@@ -390,7 +390,7 @@ alt="如果出现这个画面表示连接成功" />
 <p>进入<a
 target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu-ports/">清华镜像源</a>，选择Ubuntu系统（根据你烧录的版本进行选择），其他默认就好，下面代码框中的内容就是待会儿需要添加的内容。</p>
 <p>然后到SSH终端中，输入以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo -i<br>vi /etc/apt/sources.list<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo -i<br>vim /etc/apt/sources.list<br></code></pre></td></tr></table></figure>
 <p>把刚刚清华镜像源代码框里面的内容复制到里面去（如果你对Vim的操作还不是太熟悉的话，建议去学习一些简单的操作）：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="hljs-string">deb</span> <span class="hljs-string">https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/</span> <span class="hljs-string">jammy</span> <span class="hljs-string">main</span> <span class="hljs-string">restricted</span> <span class="hljs-string">universe</span> <span class="hljs-string">multiverse</span><br><span class="hljs-comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy main restricted universe multiverse</span><br><span class="hljs-string">deb</span> <span class="hljs-string">https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/</span> <span class="hljs-string">jammy-updates</span> <span class="hljs-string">main</span> <span class="hljs-string">restricted</span> <span class="hljs-string">universe</span> <span class="hljs-string">multiverse</span><br><span class="hljs-comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-updates main restricted universe multiverse</span><br><span class="hljs-string">deb</span> <span class="hljs-string">https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/</span> <span class="hljs-string">jammy-backports</span> <span class="hljs-string">main</span> <span class="hljs-string">restricted</span> <span class="hljs-string">universe</span> <span class="hljs-string">multiverse</span><br><span class="hljs-comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-backports main restricted universe multiverse</span><br><br><span class="hljs-string">deb</span> <span class="hljs-string">http://ports.ubuntu.com/ubuntu-ports/</span> <span class="hljs-string">jammy-security</span> <span class="hljs-string">main</span> <span class="hljs-string">restricted</span> <span class="hljs-string">universe</span> <span class="hljs-string">multiverse</span><br><span class="hljs-comment"># deb-src http://ports.ubuntu.com/ubuntu-ports/ jammy-security main restricted universe multiverse</span><br><br><span class="hljs-comment"># 预发布软件源，不建议启用</span><br><span class="hljs-comment"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-proposed main restricted universe multiverse</span><br><span class="hljs-comment"># # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-proposed main restricted universe multiverse</span><br></code></pre></td></tr></table></figure>
 <p>更换完之后保存退出。在终端中输入：</p>
@@ -402,11 +402,11 @@ Server默认打开<strong>DHCP</strong>，所以可能会出现每次重启之�
 <p>在终端中输入如下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vim /etc/netplan/50-cloud-init.yaml<br></code></pre></td></tr></table></figure>
 <p>可能<code>netplan</code>文件夹下的文件名不同，请以自己文件夹下的那个文件名为准。</p>
-<p>将配置文件中的内容修改为以下内容：</p>
+<p>将配置文件中的内容修改为以下内容："29D8EB6EAC79":</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># This file is generated from information provided by the datasource.  Changes</span><br><span class="hljs-comment"># to it will not persist across an instance reboot.  To disable cloud-init&#x27;s</span><br><span class="hljs-comment"># network configuration capabilities, write a file</span><br><span class="hljs-comment"># /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:</span><br><span class="hljs-comment"># network: &#123;config: disabled&#125;</span><br><span class="hljs-attr">network:</span><br>    <span class="hljs-attr">ethernets:</span><br>        <span class="hljs-attr">eth0:</span><br>            <span class="hljs-attr">dhcp4:</span> <span class="hljs-literal">true</span><br>            <span class="hljs-attr">optional:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">version:</span> <span class="hljs-number">2</span><br>    <span class="hljs-attr">wifis:</span><br>        <span class="hljs-attr">wlan0:</span><br>            <span class="hljs-attr">access-points:</span><br>                <span class="hljs-attr">&quot;Your_wifi_name&quot;:</span><br>                    <span class="hljs-attr">password:</span> <span class="hljs-string">Your_wifi_password</span><br>            <span class="hljs-attr">dhcp4:</span> <span class="hljs-literal">false</span><br>            <span class="hljs-attr">addresses:</span><br>                <span class="hljs-bullet">-</span> <span class="hljs-number">192.168</span><span class="hljs-number">.1</span><span class="hljs-number">.111</span><span class="hljs-string">/24</span> <span class="hljs-comment"># Your_Static_IP/Mask</span><br>            <span class="hljs-attr">routes:</span><br>                <span class="hljs-bullet">-</span> <span class="hljs-attr">to:</span> <span class="hljs-string">default</span><br>                  <span class="hljs-attr">via:</span> <span class="hljs-number">192.168</span><span class="hljs-number">.1</span><span class="hljs-number">.1</span> <span class="hljs-comment"># Your_gateway</span><br>            <span class="hljs-attr">nameservers:</span><br>                <span class="hljs-attr">addresses:</span><br>                    <span class="hljs-bullet">-</span> <span class="hljs-number">223.5</span><span class="hljs-number">.5</span><span class="hljs-number">.5</span> <span class="hljs-comment">#DNS</span><br>                    <span class="hljs-bullet">-</span> <span class="hljs-number">8.8</span><span class="hljs-number">.8</span><span class="hljs-number">.8</span><br>            <span class="hljs-attr">optional:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
 <p>保存退出之后，在再次终端中输入：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl <span class="hljs-built_in">enable</span> wpa_supplicant<br>systemctl start wpa_supplicant<br>netplan generate<br>systemctl daemon-reload<br>netplan apply<br></code></pre></td></tr></table></figure>
-<p>重启之后静态局域网IP地址就应该生效了。</p>
+<p>重启之后静态局域网IP地址就应该生效了。（不过好像会自动断连，应该是修改成功了）</p>
 <h2 id="lnmp">3. LNMP</h2>
 <p>至此，一个基本的Ubuntu
 Server系统就搭建好了。在这个系统基础上，我们来搭建<strong>Web服务器</strong>。</p>
@@ -519,11 +519,11 @@ src="/img/基于LNMP框架自建树莓派Web服务器/ssl_install.png" srcset="/
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
+        <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="print-no-link">#服务器</a>
+      
         <a href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" class="print-no-link">#树莓派</a>
       
         <a href="/tags/Raspberry-Pi/" class="print-no-link">#Raspberry Pi</a>
-      
-        <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="print-no-link">#服务器</a>
       
         <a href="/tags/LNMP/" class="print-no-link">#LNMP</a>
       
@@ -593,6 +593,12 @@ src="/img/基于LNMP框架自建树莓派Web服务器/ssl_install.png" srcset="/
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/%E4%B8%AD%E5%9B%BD%E9%82%AE%E9%80%92%E5%91%98%E9%97%AE%E9%A2%98/" title="中国邮递员问题（更新中）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">中国邮递员问题（更新中）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
