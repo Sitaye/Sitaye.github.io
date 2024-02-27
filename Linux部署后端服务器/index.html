@@ -253,7 +253,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.7k 字
+          3.3k 字
         
       </span>
     
@@ -265,7 +265,7 @@
         
         
           <!-- compatible with older versions-->
-          约 23 分钟
+          约 28 分钟
         
       </span>
     
@@ -352,7 +352,7 @@ Tomcat 的代理服务器。</p>
 <p>安装好 Nginx 后，需要配置 Nginx 实现后端代理功能。在 Linux
 终端中输入命令：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo vim /etc/nginx/sites-enabled/default<br></code></pre></td></tr></table></figure>
-<p>具体文件路径可以自行查阅。在打开的文件夹中找到并修改为以下字段：</p>
+<p>具体文件路径可以自行查找。在打开的文件夹中找到并修改为以下字段：</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-comment"># Add index.php to the list if you are using PHP</span><br><span class="hljs-attribute">index</span> index.html index.htm index.nginx-debian.html;<br><br><span class="hljs-attribute">server_name</span> Your_Domain;<br><br><span class="hljs-section">location</span> / &#123;<br>        <span class="hljs-comment"># First attempt to serve request as file, then</span><br>        <span class="hljs-comment"># as directory, then fall back to displaying a 404.</span><br>        <span class="hljs-comment"># try_files $uri $uri/ =404;</span><br>        <span class="hljs-attribute">proxy_pass</span> http://localhost:8080;  <span class="hljs-comment"># Tomcat监听的地址</span><br>&#125;<br></code></pre></td></tr></table></figure>
 <p>其中：</p>
 <ul>
@@ -382,10 +382,27 @@ target="_blank" rel="noopener" href="https://www.oracle.com/cn/java/technologies
 <h4 id="自动启动">3. 2 自动启动</h4>
 <p>如果你想你的服务器自动启动，可以通过 Linux 的 <code>systemctl</code>
 来管理服务。</p>
-<p>新建一个服务单元文件：</p>
+<p>首先需要新建一个 Shell 脚本，用于输出日志文件和启动程序：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo vim start_app.sh<br></code></pre></td></tr></table></figure>
+<p>然后在文件中输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">!/bin/bash</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">定义日志文件路径</span><br>LOG_DIR=&quot;/path/to/your/log&quot;<br>CURRENT_LOG=&quot;$LOG_DIR/CURRENT_LOG.log&quot;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">如果日志文件存在，则重命名为程序退出的时间</span><br>if [ -f &quot;$CURRENT_LOG&quot; ]; then<br>    TIMESTAMP=$(date +&quot;%Y%m%d_%H%M%S&quot;)<br>    mv &quot;$CURRENT_LOG&quot; &quot;$LOG_DIR/id_$TIMESTAMP.log&quot;<br>fi<br><span class="hljs-meta prompt_"># </span><span class="language-bash">创建新的日志文件</span><br>touch &quot;$CURRENT_LOG&quot;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">更改日志文件的权限</span><br>chmod 644 &quot;$CURRENT_LOG&quot;<br><span class="hljs-meta prompt_"># </span><span class="language-bash">启动Java应用并将输出重定向到日志文件</span><br>/path/to/your/java -jar your_project_name.jar &gt;&gt; &quot;$CURRENT_LOG&quot; 2&gt;&amp;1<br></code></pre></td></tr></table></figure>
+<p>其中程序如果退出，脚本则会将日志文件保存成【时间.log】的形式，方便对日志文件进行管理。</p>
+<p>保存之后，赋予执行权限：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo chmod +x start_app.sh<br></code></pre></td></tr></table></figure>
+<p>创建好执行脚本后，新建一个服务单元文件：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo vim /etc/systemd/system/your_project_name.service<br></code></pre></td></tr></table></figure>
 <p>然后在文件中输入：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs shell">[Unit]<br>Description=Intelligent Diagnosis Java App # 启动时显示的描述信息<br>After=network.target # 开启网络连通之后才会启动程序的功能<br>[Service]<br>User=ubuntu # 服务通过哪个用户启动<br>WorkingDirectory=/home/ubuntu/app # 服务工作路径<br>ExecStart=/usr/lib/jvm/jdk-21.0.2/bin/java -jar test_id-0.0.1-SNAPSHOT.jar # 执行的指令<br>SuccessExitStatus=143 # 服务成功退出时的状态码<br>Restart=always # 断线自动重连<br>RestartSec=10 # 重连的间隔时间(s)<br>StandardOutput=file:/home/ubuntu/app/log/%t.log # 标准日志输出，其中文件名命名为当前时间<br>StandardError=file:/home/ubuntu/app/log/%t.log # 标准错误输出<br>[Install]<br>WantedBy=multi-user.target # 多用户模式下运行时自动启动<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs shell">[Unit]<br>Description=Intelligent Diagnosis Java App<br>After=network.target<br>[Service]<br>User=ubuntu<br>WorkingDirectory=/home/ubuntu/app<br>ExecStart=/path/to/your/shell/start_app.sh<br>SuccessExitStatus=143<br>Restart=always<br>RestartSec=10<br>[Install]<br>WantedBy=multi-user.target<br></code></pre></td></tr></table></figure>
+<p>其中：<code>Description</code>
+表示启动时显示的描述信息，<code>After</code>
+表示开启网络连通之后才会启动程序的功能，<code>User</code>
+表示服务通过哪个用户启动，<code>WorkingDirectory</code>
+表示服务工作路径，<code>ExecStart</code> 表示执行的指令
+，<code>SuccessExitStatus</code>
+表示服务成功退出时的状态码，<code>Restart</code>
+表示断线自动重连，<code>RestartSec</code>
+表示重连的间隔时间(s)，<code>WantedBy</code>
+表示多用户模式下运行时自动启动。</p>
 <p>保存退出后，在终端中输入以下指令是配置生效：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo systemctl daemon-reload<br>sudo systemctl restart your_project_name<br></code></pre></td></tr></table></figure>
 <p>你可以输入以下指令查看程序是否正常运行：</p>
