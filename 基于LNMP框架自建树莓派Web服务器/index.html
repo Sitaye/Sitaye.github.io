@@ -22,7 +22,7 @@
   
   
   
-  <title>基于LNMP框架自建树莓派Web服务器 - WaTerBirD&#39;s Blog</title>
+  <title>基于LNMP框架自建树莓派Web服务器 - WaTerBirD水鸟</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -394,7 +394,7 @@ target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/help/u
 <p>把刚刚清华镜像源代码框里面的内容复制到里面去（如果你对Vim的操作还不是太熟悉的话，建议去学习一些简单的操作）：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-comment"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="hljs-string">deb</span> <span class="hljs-string">https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/</span> <span class="hljs-string">jammy</span> <span class="hljs-string">main</span> <span class="hljs-string">restricted</span> <span class="hljs-string">universe</span> <span class="hljs-string">multiverse</span><br><span class="hljs-comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy main restricted universe multiverse</span><br><span class="hljs-string">deb</span> <span class="hljs-string">https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/</span> <span class="hljs-string">jammy-updates</span> <span class="hljs-string">main</span> <span class="hljs-string">restricted</span> <span class="hljs-string">universe</span> <span class="hljs-string">multiverse</span><br><span class="hljs-comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-updates main restricted universe multiverse</span><br><span class="hljs-string">deb</span> <span class="hljs-string">https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/</span> <span class="hljs-string">jammy-backports</span> <span class="hljs-string">main</span> <span class="hljs-string">restricted</span> <span class="hljs-string">universe</span> <span class="hljs-string">multiverse</span><br><span class="hljs-comment"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-backports main restricted universe multiverse</span><br><br><span class="hljs-string">deb</span> <span class="hljs-string">http://ports.ubuntu.com/ubuntu-ports/</span> <span class="hljs-string">jammy-security</span> <span class="hljs-string">main</span> <span class="hljs-string">restricted</span> <span class="hljs-string">universe</span> <span class="hljs-string">multiverse</span><br><span class="hljs-comment"># deb-src http://ports.ubuntu.com/ubuntu-ports/ jammy-security main restricted universe multiverse</span><br><br><span class="hljs-comment"># 预发布软件源，不建议启用</span><br><span class="hljs-comment"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-proposed main restricted universe multiverse</span><br><span class="hljs-comment"># # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ jammy-proposed main restricted universe multiverse</span><br></code></pre></td></tr></table></figure>
 <p>更换完之后保存退出。在终端中输入：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt update &amp;&amp; apt upgrade<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo apt update &amp;&amp; apt -y upgrade<br></code></pre></td></tr></table></figure>
 <p>使你的软件源配置更新并为你的系统获取最新的软件包。</p>
 <h3 id="设置静态局域网ip">2. 6 设置静态局域网IP*</h3>
 <p>由于Ubuntu
@@ -779,6 +779,17 @@ src="/img/基于LNMP框架自建树莓派Web服务器/ssl_install.png" srcset="/
 </div>
 
   
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      蜀ICP备2024057307号
+    </a>
+  </span>
+  
+</div>
+
   
   
 </div>
